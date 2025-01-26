@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Options Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .results {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .results span {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Find Your Career Path</h1>
+    <p>Enter your interests below to explore potential career options.</p>
+    <input type="text" id="interestInput" placeholder="E.g., technology, art, sports" />
+    <button onclick="generateCareers()">Find Careers</button>
+    <div class="results" id="results"></div>
+  </div>
+
+  <script>
+    function generateCareers() {
+      const interest = document.getElementById('interestInput').value.toLowerCase();
+      const resultsDiv = document.getElementById('results');
+
+      if (!interest.trim()) {
+        resultsDiv.innerHTML = '<p>Please enter an interest to get started.</p>';
+        return;
+      }
+
+      const careerOptions = {
+        technology: ['Software Developer', 'Data Scientist', 'Cybersecurity Analyst', 'IT Manager'],
+        art: ['Graphic Designer', 'Illustrator', 'Art Director', 'Animator'],
+        sports: ['Athletic Trainer', 'Coach', 'Sports Psychologist', 'Physical Therapist'],
+        science: ['Research Scientist', 'Lab Technician', 'Biotechnologist', 'Environmental Scientist'],
+        business: ['Entrepreneur', 'Marketing Manager', 'Financial Analyst', 'HR Specialist'],
+        music: ['Musician', 'Sound Engineer', 'Music Teacher', 'Composer'],
+        writing: ['Journalist', 'Content Writer', 'Editor', 'Author'],
+        healthcare: ['Doctor', 'Nurse', 'Pharmacist', 'Medical Researcher']
+      };
+
+      const careers = careerOptions[interest] || ['Sorry, no specific careers found. Try another interest!'];
+
+      resultsDiv.innerHTML = `
+        <p>Based on your interest in <span>${interest}</span>, here are some career options:</p>
+        <ul>
+          ${careers.map(career => `<li>${career}</li>`).join('')}
+        </ul>
+      `;
+    }
+  </script>
+</body>
+</html>

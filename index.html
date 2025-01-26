@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Suggestion Based on Interests</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Find Your Dream Career 💼</h1>
+    <p>Tell us your interests, and we'll suggest some careers!</p>
+
+    <div class="input-container">
+      <textarea id="interestInput" placeholder="Enter your interests here..." rows="4"></textarea>
+    </div>
+
+    <button onclick="suggestCareer()">Get Career Suggestions</button>
+
+    <div id="result">
+      <h3>Your Suggested Careers:</h3>
+      <ul id="careerList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

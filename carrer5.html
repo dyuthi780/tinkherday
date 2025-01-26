@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Options Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    .interests {
+      margin: 20px 0;
+    }
+
+    .interests span {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .interests span:hover {
+      background-color: #45a049;
+    }
+
+    .results {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+      text-align: left;
+    }
+
+    .results span {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .career-options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .career-options li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Find Your Career Path</h1>
+    <p>Select an interest below to explore potential career options:</p>
+    <div class="interests" id="interests">
+      <span onclick="generateCareers('technology')">Technology</span>
+      <span onclick="generateCareers('art')">Art</span>
+      <span onclick="generateCareers('sports')">Sports</span>
+      <span onclick="generateCareers('science')">Science</span>
+      <span onclick="generateCareers('business')">Business</span>
+      <span onclick="generateCareers('music')">Music</span>
+      <span onclick="generateCareers('writing')">Writing</span>
+      <span onclick="generateCareers('healthcare')">Healthcare</span>
+      <span onclick="generateCareers('education')">Education</span>
+      <span onclick="generateCareers('travel')">Travel</span>
+      <span onclick="generateCareers('food')">Food</span>
+      <span onclick="generateCareers('environment')">Environment</span>
+      <span onclick="generateCareers('gaming')">Gaming</span>
+      <span onclick="generateCareers('fashion')">Fashion</span>
+      <span onclick="generateCareers('finance')">Finance</span>
+      <span onclick="generateCareers('engineering')">Engineering</span>
+      <span onclick="generateCareers('psychology')">Psychology</span>
+      <span onclick="generateCareers('law')">Law</span>
+      <span onclick="generateCareers('social_work')">Social Work</span>
+      <span onclick="generateCareers('media')">Media</span>
+    </div>
+    <div class="results" id="results"></div>
+  </div>
+
+  <script>
+    function generateCareers(interest) {
+      const resultsDiv = document.getElementById('results');
+
+      const careerOptions = {
+        technology: ['Software Developer', 'Data Scientist', 'Cybersecurity Analyst', 'IT Manager', 'AI Specialist'],
+        art: ['Graphic Designer', 'Illustrator', 'Art Director', 'Animator', 'Creative Director'],
+        sports: ['Athletic Trainer', 'Coach', 'Sports Psychologist', 'Physical Therapist', 'Sports Commentator'],
+        science: ['Research Scientist', 'Lab Technician', 'Biotechnologist', 'Environmental Scientist', 'Astrophysicist'],
+        business: ['Entrepreneur', 'Marketing Manager', 'Financial Analyst', 'HR Specialist', 'Business Consultant'],
+        music: ['Musician', 'Sound Engineer', 'Music Teacher', 'Composer', 'Music Producer'],
+        writing: ['Journalist', 'Content Writer', 'Editor', 'Author', 'Screenwriter'],
+        healthcare: ['Doctor', 'Nurse', 'Pharmacist', 'Medical Researcher', 'Therapist'],
+        education: ['Teacher', 'Academic Counselor', 'Curriculum Developer', 'Education Administrator', 'Instructional Designer'],
+        travel: ['Travel Blogger', 'Tour Guide', 'Travel Agent', 'Flight Attendant', 'Hotel Manager'],
+        food: ['Chef', 'Food Critic', 'Nutritionist', 'Food Scientist', 'Pastry Chef'],
+        environment: ['Ecologist', 'Conservation Scientist', 'Renewable Energy Specialist', 'Environmental Policy Analyst', 'Wildlife Biologist'],
+        gaming: ['Game Developer', 'Game Tester', 'Esports Player', 'Game Designer', 'Game Streamer'],
+        fashion: ['Fashion Designer', 'Stylist', 'Fashion Buyer', 'Textile Engineer', 'Model'],
+        finance: ['Accountant', 'Investment Banker', 'Tax Consultant', 'Financial Planner', 'Stock Broker'],
+        engineering: ['Mechanical Engineer', 'Civil Engineer', 'Electrical Engineer', 'Aerospace Engineer', 'Robotics Engineer'],
+        psychology: ['Clinical Psychologist', 'Counselor', 'Industrial Psychologist', 'Forensic Psychologist', 'Behavioral Analyst'],
+        law: ['Lawyer', 'Legal Consultant', 'Paralegal', 'Judge', 'Corporate Lawyer'],
+        social_work: ['Social Worker', 'Community Outreach Coordinator', 'Mental Health Advocate', 'Nonprofit Manager', 'Case Worker'],
+        media: ['Journalist', 'TV Producer', 'News Anchor', 'Content Creator', 'Public Relations Specialist']
+      };
+
+      const careers = careerOptions[interest] || ['Sorry, no specific careers found for this interest.'];
+
+      resultsDiv.innerHTML = `
+        <p>You selected the interest: <span>${interest.replace('_', ' ')}</span></p>
+        <p>Based on your interest, here are some career options:</p>
+        <ul class="career-options">
+          ${careers.map(career => `<li>${career}</li>`).join('')}
+        </ul>
+      `;
+    }
+  </script>
+</body>
+</html>
